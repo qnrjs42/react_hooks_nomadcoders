@@ -14,3 +14,28 @@
 - usePreventLeave: 유저가 변경사항이나 무엇이든 저장하지 않고 페이지를 벗어나가길 원할 때 확인
 - useConfirm: confirm 역할, 어떤 기능이 존재함
 - useAxios: HTTP request client axios를 위한 wrapper
+
+```jsx
+import React, { useState } from "react";
+
+const useInput = (initialValue) => {
+  const [value, setValue] = useState(initialValue);
+  const onChange = event => {
+    console.log(event.target);
+  }
+  return { value, onChange };
+}
+
+const App = () => {
+  const name = useInput("Mr.");
+
+  return (
+    <div>
+      <h1>Hello!!!</h1>
+      <input placeholder="Name" value={name.value} onChange={name.onChange} />
+    </div>
+  );
+}
+
+export default App;
+```

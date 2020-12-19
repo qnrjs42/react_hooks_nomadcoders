@@ -73,3 +73,45 @@ const App = () => {
 
 export default App;
 ```
+
+---
+
+### useClick
+
+```js
+import React, { useEffect, useRef, useState } from "react";
+import { useTitle } from "./useTitle";
+
+const useClick = (onClick) => {
+  const element = useRef();
+
+  useEffect(() => {
+    if (element.current) {
+      element.current.addEventListener("click", onClick);
+    }
+    return () => {
+      if (element.current) {
+        element.current.removeEventListener("click", onClick);
+      }
+    };
+  }, []);
+  
+  return element;
+}
+
+const App = () => {
+  const onClick = () => {
+    console.log('hello');
+  }
+ const title = useClick(onClick);
+
+  return (
+    <div>
+      <h1>Hello!!!</h1>
+      <h2 ref={title}>Hi</h2>
+    </div>
+  );
+}
+
+export default App;
+```

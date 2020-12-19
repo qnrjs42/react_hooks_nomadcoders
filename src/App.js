@@ -1,20 +1,15 @@
 import React, { useEffect, useState } from "react";
+import { useTitle } from "./useTitle";
+
 
 const App = () => {
-  const sayHello = () => console.log('hello');
+  const titleUpdater = useTitle("Loading...");
 
-  const [number, setNumber] = useState(0);
-  const [aNumber, setAnumber] = useState(0);
-
-  useEffect(() => {
-    sayHello();
-  }, [number]);
+  setTimeout(() => titleUpdater("Home"), 5000);
 
   return (
     <div>
       <h1>Hello!!!</h1>
-      <button onClick={() => setNumber(number + 1)}>{number}</button>
-      <button onClick={() => setAnumber(aNumber + 1)}>{aNumber}</button>
     </div>
   );
 }

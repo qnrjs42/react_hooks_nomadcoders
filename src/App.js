@@ -1,39 +1,12 @@
 import React, { useEffect, useRef, useState } from "react";
 
-const useNetwork = onChange => {
-  const [status, setStatus] = useState(navigator.onLine);
 
-  const handleChange = () => {
-    if (typeof onChange === "function") {
-      onChange(navigator.onLine);
-    }
-    setStatus(navigator.onLine);
-  }
-
-  useEffect(() => {
-    window.addEventListener("online", handleChange);
-    window.addEventListener("offline", handleChange);
-    // eslint-disable-next-line no-unused-expressions
-    () => {
-      window.removeEventListener("online", handleChange);
-      window.removeEventListener("offline", handleChange);
-    };
-  }, []);
-
-  return status;
-}
 
 const App = () => {
-  const handleNetworkChange = (online) => {
-    console.log(online ? "We just went online" : "We are offline");
-  }
-  const onLine = useNetwork(handleNetworkChange);
-
   return (
     <div>
-      <h1>{onLine ? "OnLine" : "OffLine"}</h1>
-      {/* <button onClick={}>Protect</button> */}
-      {/* <button onClick={}>UnProtect</button> */}
+      <h1>Hello!!!</h1>
+      
     </div>
   );
 }

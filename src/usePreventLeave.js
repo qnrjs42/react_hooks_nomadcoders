@@ -1,17 +1,18 @@
-import React, { useEffect, useRef, useState } from "react";
+import React from "react";
 
 const usePreventLeave = () => {
   const listener = (event) => {
     event.preventDefault();
     event.returnValue = "";
-  }
+  };
   const enablePrevent = () => window.addEventListener("beforeunload", listener);
-  const disablePrevent = () => window.removeEventListener("beforeunload", listener);
+  const disablePrevent = () =>
+    window.removeEventListener("beforeunload", listener);
 
   return { enablePrevent, disablePrevent };
-} 
+};
 
-const App = () => {
+const PreventLeave = () => {
   const { enablePrevent, disablePrevent } = usePreventLeave();
 
   return (
@@ -21,6 +22,6 @@ const App = () => {
       <button onClick={disablePrevent}>UnProtect</button>
     </div>
   );
-}
+};
 
-export default App;
+export default PreventLeave;

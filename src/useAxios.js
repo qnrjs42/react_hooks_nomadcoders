@@ -22,17 +22,17 @@ const useAxios = (opts, axiosInstance = defaultAxios) => {
       return;
     }
 
-    axiosInstance(opts)
-      .then((data) => {
-        setState({
-          ...state,
-          loading: false,
-          data,
-        });
-      })
-      .catch((error) => {
-        setState({ ...state, loading: false, error });
+  axiosInstance(opts)
+    .then((data) => {
+      setState({
+        ...state,
+        loading: false,
+        data,
       });
+    })
+    .catch((error) => {
+      setState({ ...state, loading: false, error });
+    });
   }, [trigger]);
 
   return { ...state, refetch };

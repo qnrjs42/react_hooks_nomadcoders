@@ -23,8 +23,6 @@ const BeforeLeave = () => {
   return (
     <div>
       <h1>Hello!!!</h1>
-      {/* <button onClick={}>Protect</button> */}
-      {/* <button onClick={}>UnProtect</button> */}
     </div>
   );
 };

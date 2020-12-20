@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+import React from "react";
 
 const useNotification = (title, options) => {
   if (!("Notification" in window)) {
@@ -21,7 +21,7 @@ const useNotification = (title, options) => {
   return fireNotif;
 };
 
-const Notification = () => {
+const App = () => {
   const triggerNotif = useNotification("Can i ", { body: "i love " });
 
   return (
@@ -32,4 +32,4 @@ const Notification = () => {
   );
 };
 
-export default Notification;
+export default App;
